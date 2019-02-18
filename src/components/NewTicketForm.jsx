@@ -1,12 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function NewTicketForm () {
+function NewTicketForm (props) {
+
+  let _names = null;
+  let _location = null;
+  let _issue = null;
 
   function handleNewTicketFormSubmission(event){
     event.preventDefault();
-    let _names = null;
-    let _location = null;
-    let _issue = null;
+    props.onNewTicketCreation({names: _names.value, location: _location.value, issue: _issue.value});
     _names.value = '';
     _location.value = '';
     _issue.value = '';
@@ -24,7 +27,7 @@ function NewTicketForm () {
           type='text'
           id='location'
           placeholder='Location'
-          ref= {(input) => {_location = input;}}>
+          ref= {(input) => {_location = input;}}/>
         <textarea
           id='issue'
           placeholder='Describe your issue.'
@@ -34,5 +37,9 @@ function NewTicketForm () {
     </div>
   );
 }
+
+NewTicketForm.propTypes = {
+  onNewTicketCreation: PropTypes.func
+};
 
 export default NewTicketForm;
