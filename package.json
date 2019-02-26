@@ -4,10 +4,10 @@
   "description": "minimal template for reactJs apps",
   "main": "index.js",
   "scripts": {
-    "test": "test",
     "start": "node_modules/.bin/webpack-dev-server",
     "lint": "eslint src/components/**; exit 0",
-    "fix": "eslint src/components/**; --fix; exit 0"
+    "fix": "eslint src/components/**; --fix; exit 0",
+    "test": "./node_modules/.bin/jest; exit 0"
   },
   "repository": {
     "type": "git",
